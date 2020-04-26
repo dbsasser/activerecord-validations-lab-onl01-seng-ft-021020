@@ -5,10 +5,10 @@ class Post < ActiveRecord::Base
   validates :category, inclusion: { in: %w(Fiction Non-Fiction)}
   validate :clickbait_title
 
-  @clickbait_words = [/won't believe/, /secret/, /top \d/, /guess/]
+  @@clickbait_words = [/won't believe/, /secret/, /top \d/, /guess/]
 
   def clickbait_title
-    if self.title && !self.title.include?(@clickbait_words)
+    if self.title && !self.title.include?(@@clickbait_words)
       errors.add(:title, "Not clickbait-y")
     end
   end
