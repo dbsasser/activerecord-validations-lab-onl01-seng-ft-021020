@@ -8,7 +8,7 @@ class Post < ActiveRecord::Base
   @clickbait_words = [/won't believe/, /secret/, /top \d/, /guess/]
 
   def clickbait_title
-    if !self.title.include?(@clickbait_words)
+    if self.title && !self.title.include?(@clickbait_words)
       errors.add(:title, "Not clickbait-y")
     end
   end
