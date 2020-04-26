@@ -17,5 +17,5 @@ class Post < ActiveRecord::Base
       errors.add(:title, "Title is not clickbaity.")
     end
   end
-  
+
 end
